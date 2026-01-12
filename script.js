@@ -1,7 +1,8 @@
 document.addEventListener('DOMContentLoaded', function () {
     // Proxy URL to bypass CORS policy
     const proxyURL = 'https://api.allorigins.win/get?url=';
-    const playlistURL = 'http://127.0.0.1:8080/';  // 修改为您的 IPTV-API 地址
+    // GitHub Actions 部署的 IPTV-API 结果地址
+    const playlistURL = 'https://raw.githubusercontent.com/yao1987825/iptv-api/master/output/user_result.txt';
     const proxyPlaylistURL = proxyURL + encodeURIComponent(playlistURL);
     
     fetch(proxyPlaylistURL)
@@ -39,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function () {
         player.load(url);
     }
     
-    // Hide the loading screen after at least 1 second
+    // Hide loading screen after at least 1 second
     setTimeout(function () {
         document.getElementById('loading-screen').style.display = 'none';
         document.getElementById('content').style.display = 'block';
